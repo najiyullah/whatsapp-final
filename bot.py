@@ -10,7 +10,8 @@ font_path = "fonts/arial.ttf"
 # Store uploaded image
 async def handle_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
     photo = update.message.photo[-1]
-    await photo.get_file().download_to_drive(TEMP_IMAGE)
+    file = await photo.get_file()
+    await file.download_to_drive(TEMP_IMAGE)
     await update.message.reply_text("Image received. Now send /editcount <number> <mode>\nExample: `/editcount 50 android`", parse_mode="Markdown")
 
 # Edit image
