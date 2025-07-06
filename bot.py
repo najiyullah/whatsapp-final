@@ -3,7 +3,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, Con
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+BOT_TOKEN = "7925582372:AAErShcTvjaZREd2tWZP9NU4eyp1hnfs8vs"
 TEMP_IMAGE = "input.jpg"
 font_path = "fonts/DejaVuSans.ttf"
 
