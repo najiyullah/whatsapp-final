@@ -3,9 +3,9 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, Con
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-BOT_TOKEN = "7925582372:AAErShcTvjaZREd2tWZP9NU4eyp1hnfs8vs"
+BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
 TEMP_IMAGE = "input.jpg"
-font_path = "fonts/arial.ttf"
+font_path = "fonts/DejaVuSans.ttf"
 
 # Store uploaded image
 async def handle_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -33,7 +33,10 @@ async def editcount(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     img = Image.open(TEMP_IMAGE)
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype(font_path, 36)
+    try:
+        font = ImageFont.truetype(font_path, 36)
+    except OSError:
+        font = ImageFont.load_default()
 
     if mode == "android":
         position = (240, 470)
